@@ -1,6 +1,6 @@
 # Recipe data
 aglio = {
-	'pasta': {'qty': 90, 'unit':'grams'},
+	'pasta': {'qty': 113, 'unit':'grams'},
 	'olive oil': {'qty': 8, 'unit':'grams'},
 	'garlic': {'qty': 10, 'unit':'grams'},
 	'red pepper': {'qty': 0.2, 'unit':'tsp'},
@@ -11,18 +11,42 @@ aglio = {
 	'parsely': {'qty': 0.1, 'unit':'bunch'}
 					}
 ragu = {
-	'pasta': {'qty': 90, 'unit':'grams'},
+	'pasta': {'qty': 113, 'unit':'grams'},
 	'ground turkey': {'qty': 5, 'unit':'oz'},
 	'bacon': {'qty': 10, 'unit':'grams'},
+	'carrots': {'qty': 10, 'unit':'grams'},
+	'celery': {'qty': 10, 'unit':'grams'},
+	'onion': {'qty': 10, 'unit':'grams'},
+	'milk': {'qty': 1, 'unit':'oz'},
+	'white wine': {'qty': 1, 'unit':'oz'},
+	'pepper': {'qty': 0.4, 'unit':'tsp'},
 	'tomato sauce': {'qty': 8, 'unit':'oz'},
 					}
 
+
+# Nutrition data
+class Nutrition():
+	"""Nutrition information"""
+	
+	def __init__(self, calories, carbs, fat, protein):
+		"""Initialize nutrition attributes"""
+		self.calories = calories
+		self.carbs = carbs
+		self.fat = fat
+		self.protein = protein
+		
+aglio_nutrition = Nutrition(675, 87, 17, 43)
+ragu_nutrition = Nutrition(836, 101, 26, 43)
+
+
+# Display the recipe book
 recipe_book = {'aglio': aglio, 'ragu': ragu}
 menu = []
 for recipe in recipe_book.keys():
 	menu.append(recipe.title())
 print('Menu: ')
 print(str(menu) + '\n')
+
 
 # Receive the meal plan
 meal_plan = {}
@@ -36,12 +60,15 @@ while gathering_info:
 	if another == 'no':
 		gathering_info = False
 
+
+# Print the meal plan
 print('Meal plan: ')
 for meal, qty in meal_plan.items():
 	print(meal.title() + ': ' + str(qty))
 
-print('\nShopping list:')
+
 # Create the shopping list
+print('\nShopping list:')
 shopping_list = {}
 for req_recipe, req_qty in meal_plan.items():
 	if req_recipe in recipe_book:
@@ -57,3 +84,4 @@ for req_recipe, req_qty in meal_plan.items():
 # Print a formmated shopping list
 for key, value in shopping_list.items():
 	print(key.capitalize() + ': ' + str(value))
+
