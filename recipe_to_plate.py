@@ -10,6 +10,7 @@ aglio = {
 	'burrata': {'qty': 11, 'unit':'grams'},
 	'parsely': {'qty': 0.1, 'unit':'bunch'}
 					}
+
 ragu = {
 	'pasta': {'qty': 113, 'unit':'grams'},
 	'ground turkey': {'qty': 5, 'unit':'oz'},
@@ -50,7 +51,40 @@ queso_blanco = {
 	'sharp white cheddar': {'qty': 4, 'unit': 'oz'},
 	'tomato': {'qty': 10, 'unit': 'grams'},
 	'salt': {'qty': 3, 'unit': 'grams'}
-}
+	}
+
+black_beans = {
+	'black beans': {'qty': 6, 'unit': '15 oz cans'},
+	'olive oil': {'qty': 2, 'unit': 'tbsp'},
+	'onion': {'qty': 1, 'unit': 'ea'},
+	'garlic': {'qty': 30, 'unit': 'grams'},
+	'cumin': {'qty': 2, 'unit': 'tsp'},
+	'dried oregano': {'qty': 1.5, 'unit': 'tsp'},
+	'bay leaves': {'qty': 2, 'unit': 'ea'},
+	'salt': {'qty': 1.5, 'unit': 'tsp'},
+	'adobo sauce': {'qty': 1, 'unit': 'tbsp'},
+	'lime juice': {'qty': 3, 'unit': 'ea'},
+	}
+
+breakfast_burritos = {
+	'eggs': {'qty': 2, 'unit':'ea'},
+	'egg whites': {'qty': 50, 'unit':'g'},
+	'sausage': {'qty': 1, 'unit':'ea'},
+	'cheese': {'qty': 18, 'unit':'grams'},
+	'onion': {'qty': 20, 'unit':'g'},
+	'torilla': {'qty': 1, 'unit':'ea'},
+	}
+
+pizza = {
+	'flour': {'qty': 92, 'unit':'g'},
+	'salt': {'qty': 2.1, 'unit':'g'},
+	'instant yeast': {'qty': .5, 'unit':'g'},
+	'olive oil': {'qty': 9.5, 'unit':'grams'},
+	'water': {'qty': 68.5, 'unit':'g'},
+	'tomato sauce': {'qty': 2, 'unit':'oz'},
+	'mozzarella': {'qty': 2, 'unit':'oz'},
+	'basil': {'qty': 3, 'unit':'ea'},
+	}
 
 # Nutrition data
 class Nutrition():
@@ -161,5 +195,11 @@ queso_blanco_instructions = Instructions('Simmer milk, onion, '
 	'no step 5',
 	'no step 6')
 
-queso_blanco_instructions.print_instructions()
-
+black_beans_instructions = Instructions(
+	'Heat oil over medium heat',
+	'Add onion with salt, then garlic',
+	'Add cumin, dried oregano, black pepper, and bay leaves',
+	'Add 3 cans of drained beans and 3 full cans',
+	'Add adobo sauce, simmer for 20 minutes, mash beans to thicken',
+	'finish with lime juice and salt'
+	)
