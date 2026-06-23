@@ -112,8 +112,10 @@ def get_price(recipe_name):
 
 
 # Display the recipe book
-recipe_book = {'aglio': aglio, 'ragu': ragu, 'cookies': cookies, 
-	'queso blanco': queso_blanco}
+recipe_book = {
+	'aglio': aglio, 'ragu': ragu, 'cookies': cookies, 
+	'queso blanco': queso_blanco, 'black beans': black_beans,
+	'breakfast burritos': breakfast_burritos, 'pizza': pizza}
 	
 menu = []
 for recipe in recipe_book.keys():
@@ -207,8 +209,7 @@ queso_blanco_instructions = Instructions(
 	'Add corn starch and water, and cook until thickened',
 	'Lower heat, add sour cream, and cheeses gradually',
 	'Add tomato and salt to taste',
-	'no step 5',
-	'no step 6'
+	'no step 6',
 	)
 
 black_beans_instructions = Instructions(
