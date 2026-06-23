@@ -9,7 +9,7 @@ aglio = {
 	'pepper': {'qty': 0.4, 'unit':'tsp'},
 	'burrata': {'qty': 11, 'unit':'grams'},
 	'parsely': {'qty': 0.1, 'unit':'bunch'}
-					}
+	}
 
 ragu = {
 	'pasta': {'qty': 113, 'unit':'grams'},
@@ -22,20 +22,20 @@ ragu = {
 	'white wine': {'qty': 1, 'unit':'oz'},
 	'pepper': {'qty': 0.4, 'unit':'tsp'},
 	'tomato sauce': {'qty': 8, 'unit':'oz'},
-					}
+	}
 
 cookies = {
-	'flour': {'qty': 285, 'unit':'grams'},
-	'corn starch': {'qty': 20, 'unit':'grams'},
-	'salt': {'qty': 1, 'unit':'tsp'},
-	'baking soda': {'qty': 1, 'unit':'tsp'},
-	'butter': {'qty': 6, 'unit':'oz'},
-	'brown sugar': {'qty': 200, 'unit':'grams'},
-	'granulated sugar': {'qty': 100, 'unit':'grams'},
-	'eggs': {'qty': 2, 'unit':'ea'},
-	'vanilla': {'qty': 2, 'unit':'tsp'},
-	'chocolate chips': {'qty': 2, 'unit':'oz'},
-					}
+	'flour': {'qty': 285, 'unit': 'grams', 'price': 0.92},
+	'corn starch': {'qty': 20, 'unit': 'grams', 'price': 0.12},
+	'salt': {'qty': 1, 'unit': 'tsp', 'price': 0.04},
+	'baking soda': {'qty': 1, 'unit': 'tsp', 'price': 0.01},
+	'butter': {'qty': 6, 'unit': 'oz', 'price': 3.06},
+	'brown sugar': {'qty': 200, 'unit': 'grams', 'price': 0.88},
+	'granulated sugar': {'qty': 100, 'unit': 'grams', 'price': 0.47},
+	'eggs': {'qty': 2, 'unit': 'ea', 'price': 0.68},
+	'vanilla': {'qty': 2, 'unit': 'tsp', 'price': 1.50},
+	'chocolate chips': {'qty': 2, 'unit': 'oz', 'price': 1.40},
+	}
 
 queso_blanco = {
 	'whole milk': {'qty': 16, 'unit': 'oz'},
@@ -86,6 +86,7 @@ pizza = {
 	'basil': {'qty': 3, 'unit':'ea'},
 	}
 
+
 # Nutrition data
 class Nutrition():
 	"""Nutrition information"""
@@ -99,6 +100,15 @@ class Nutrition():
 		
 aglio_nutrition = Nutrition(675, 87, 17, 43)
 ragu_nutrition = Nutrition(836, 101, 26, 43)
+
+
+# Calculate price
+def get_price(recipe_name):
+	"""Calculate recipe price"""
+	recipe_price = 0
+	for info in recipe_name.values():
+		recipe_price = recipe_price + info['price']
+	return recipe_price
 
 
 # Display the recipe book
@@ -173,27 +183,33 @@ class Instructions:
 		print(self.step_6)
 
 
-ragu_instructions = Instructions('Fry bacon, then veggies', 
+ragu_instructions = Instructions(
+	'Fry bacon, then veggies', 
 	'Add meat, and once brown, add wine',
 	'Add tomato sauce, simmer for 2 hours, then add milk',
 	'Salt and pepper to taste',
 	'no step 5',
-	'no step 6')
+	'no step 6'
+	)
 
-cookies_instructions = Instructions('Melt butter', 
+cookies_instructions = Instructions(
+	'Melt butter', 
 	'Combine flour, corn starch, salt, and baking soda',
 	'Separately combine the melted butter and brown and white sugar,',
 	'Add eggs and vanilla to wet ingredients',
 	'Combine all ingredients and add chocolate chips',
-	'Refrigerate, then cook at 350F for 12 minutes. Add salt')
+	'Refrigerate, then cook at 350F for 12 minutes. Add salt'
+	)
 
-queso_blanco_instructions = Instructions('Simmer milk, onion, '
+queso_blanco_instructions = Instructions(
+	'Simmer milk, onion, ',
 	'peppers, and garlic for 5 minutes', 
 	'Add corn starch and water, and cook until thickened',
 	'Lower heat, add sour cream, and cheeses gradually',
 	'Add tomato and salt to taste',
 	'no step 5',
-	'no step 6')
+	'no step 6'
+	)
 
 black_beans_instructions = Instructions(
 	'Heat oil over medium heat',
